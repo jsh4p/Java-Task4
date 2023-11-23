@@ -14,4 +14,14 @@ class HumanTest {
             new Human(vars);
         });
     }
+
+    // Тест проброса исключения при нулевой ссылке в конструкторе
+    @Test
+    void constructorWithParametersNullPointerExceptionTest() {
+        String[] vars = {null, "Yaroslav", null, "23.07.2003", "A", "1878"};
+
+        assertThrows(NullPointerException.class, () -> {
+            new Human(vars);
+        });
+    }
 }
