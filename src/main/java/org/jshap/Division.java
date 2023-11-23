@@ -17,8 +17,13 @@ public class Division {
     /**
      * Конструктор с параметром
      * @param name имя подразделения
+     * @throws NullPointerException ссылка не указывает на строку
      */
     public Division(String name) {
+        if (name == null) {
+            throw new NullPointerException();
+        }
+
         boolean isContained = false;
         int nextID = IDCount;
 
@@ -37,6 +42,20 @@ public class Division {
         }
 
         ID = nextID;
+        this.name = name;
+    }
+
+    // Геттеры и сеттеры
+
+    public int getID() {
+        return ID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         this.name = name;
     }
 
